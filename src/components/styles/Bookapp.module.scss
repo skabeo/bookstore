@@ -1,0 +1,58 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.navLink {
+  display: flex;
+  gap: 20px;
+}
+
+.end {
+  margin-left: auto;
+  font-size: 20px;
+}
+
+.middleSec {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.completed {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainBook {
+  margin-top: 50px;
+  padding: 10px 40px;
+}
+
+.bookContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px 15px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.formContainer {
+  padding: 10px 40px;
+}
+
+.form {
+  display: flex;
+  gap: 20px;
+}
+
+.bookTitle {
+  width: 60%;
+}
+
+.bookAuthor,
+.bookButton {
+  width: 20%;
+}
