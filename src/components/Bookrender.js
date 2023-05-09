@@ -1,52 +1,51 @@
 import React from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles/Bookapp.module.scss';
+import { removeBook } from '../redux/books/booksSlice';
 
-const Bookrender = ({ bookProps }) => (
-  <div className={styles.mainBook}>
-    {bookProps.map((book) => (
-      <div key={book.id} className={styles.bookContainer}>
-        <div>
-          <h5>{book.title}</h5>
-          <p>{book.author}</p>
-          <button type="button">comments</button>
-          <button type="button">remove</button>
-          <button type="button">edit</button>
-        </div>
-        <div className={styles.middleSec}>
-          <AiOutlineLoading3Quarters />
-          <div className={styles.completed}>
-            <span>
-              64%
-            </span>
-            <span>
-              completed
-            </span>
+const Bookrender = () => {
+  const books = useSelector((state) => state.book.book);
+
+  const dispatch = useDispatch();
+
+  const handleremoveBook = (itemId) => {
+    dispatch(removeBook(itemId));
+  };
+  return (
+    <div className={styles.mainBook}>
+      {books.map((book) => (
+        <div key={book.item_id} className={styles.bookContainer}>
+          <div>
+            <h5>{book.title}</h5>
+            <p>{book.author}</p>
+            <button type="button">comments</button>
+            <button type="button" onClick={() => handleremoveBook(book.item_id)}>remove</button>
+            <button type="button">edit</button>
+          </div>
+          <div className={styles.middleSec}>
+            <AiOutlineLoading3Quarters />
+            <div className={styles.completed}>
+              <span>
+                64%
+              </span>
+              <span>
+                completed
+              </span>
+            </div>
+          </div>
+          <div>
+            <p>CURRENT CHAPTER</p>
+            <p>
+              Chapter
+              {book.chapter}
+            </p>
+            <button type="button">UPDATE PROGRESS</button>
           </div>
         </div>
-        <div>
-          <p>CURRENT CHAPTER</p>
-          <p>
-            Chapter
-            {book.chapter}
-          </p>
-          <button type="button">UPDATE PROGRESS</button>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
-Bookrender.propTypes = {
-  bookProps: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      chapter: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
+      ))}
+    </div>
+  );
 };
 
 export default Bookrender;
