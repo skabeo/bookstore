@@ -1,40 +1,64 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable camelcase */
+
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
-  book: [
-    {
-      item_id: 'item1',
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item2',
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item3',
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
+  book: {},
+  isLoading: false,
+  error: '',
 };
+
+const appId = 'Z355zI6NW3NM3Yz4Nkx6';
+
+export const fetchBooks = createAsyncThunk('book/fetchBooks', async () => {
+  try {
+    const response = await axios.get(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books`);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+});
 
 const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
     addBook: (state, action) => {
-      const newBook = action.payload;
-      state.book = [...state.book, newBook];
+      const {
+        item_id, title, author, category,
+      } = action.payload;
+      const newItem = {
+        title,
+        author,
+        category,
+      };
+      return {
+        ...state,
+        book: {
+          ...state.book,
+          [item_id]: [...(state.book[item_id] || []), newItem],
+        },
+      };
     },
     removeBook: (state, action) => {
-      const bookId = action.payload;
-      state.book = state.book.filter((book) => book.item_id !== bookId);
+      const itemId = action.payload;
+      const { [itemId]: removedBook, ...restOfBooks } = state.book;
+      state.book = restOfBooks;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchBooks.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchBooks.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.book = action.payload;
+    });
+    builder.addCase(fetchBooks.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
+    });
   },
 });
 

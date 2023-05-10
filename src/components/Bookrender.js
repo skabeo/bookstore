@@ -1,6 +1,9 @@
+/* eslint-disable camelcase */
+
 import React from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 import styles from './styles/Bookapp.module.scss';
 import { removeBook } from '../redux/books/booksSlice';
 
@@ -9,18 +12,27 @@ const Bookrender = () => {
 
   const dispatch = useDispatch();
 
+  const appId = 'Z355zI6NW3NM3Yz4Nkx6';
+
+  const deleteBook = async (item_id) => {
+    await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books/${item_id}`);
+  };
+
   const handleremoveBook = (itemId) => {
     dispatch(removeBook(itemId));
+    deleteBook(itemId);
   };
+
   return (
     <div className={styles.mainBook}>
-      {books.map((book) => (
-        <div key={book.item_id} className={styles.bookContainer}>
+      {Object.keys(books).map((key) => (
+        <div key={key} className={styles.bookContainer}>
           <div>
-            <h5>{book.title}</h5>
-            <p>{book.author}</p>
+            <p>{books[key][0].category}</p>
+            <h5>{books[key][0].title}</h5>
+            <p>{books[key][0].author}</p>
             <button type="button">comments</button>
-            <button type="button" onClick={() => handleremoveBook(book.item_id)}>remove</button>
+            <button type="button" onClick={() => handleremoveBook(key)}>remove</button>
             <button type="button">edit</button>
           </div>
           <div className={styles.middleSec}>
@@ -37,8 +49,7 @@ const Bookrender = () => {
           <div>
             <p>CURRENT CHAPTER</p>
             <p>
-              Chapter
-              {book.chapter}
+              Chapter 9
             </p>
             <button type="button">UPDATE PROGRESS</button>
           </div>
