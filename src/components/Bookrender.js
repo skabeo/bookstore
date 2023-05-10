@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 import React from 'react';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,8 +12,8 @@ const Bookrender = () => {
 
   const appId = 'Z355zI6NW3NM3Yz4Nkx6';
 
-  const deleteBook = async (item_id) => {
-    await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books/${item_id}`);
+  const deleteBook = async (itemId) => {
+    await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books/${itemId}`);
   };
 
   const handleremoveBook = (itemId) => {

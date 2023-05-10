@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -26,8 +24,9 @@ const bookSlice = createSlice({
   reducers: {
     addBook: (state, action) => {
       const {
-        item_id, title, author, category,
+        title, author, category,
       } = action.payload;
+      const itemId = action.payload.item_id;
       const newItem = {
         title,
         author,
@@ -37,7 +36,7 @@ const bookSlice = createSlice({
         ...state,
         book: {
           ...state.book,
-          [item_id]: [...(state.book[item_id] || []), newItem],
+          [itemId]: [...(state.book[itemId] || []), newItem],
         },
       };
     },
