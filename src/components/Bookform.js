@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './styles/Bookapp.module.scss';
-import { addBook, fetchBooks } from '../redux/books/booksSlice';
+import { addBook } from '../redux/books/booksSlice';
 
 const Bookform = () => {
   const dispatch = useDispatch();
@@ -41,19 +41,16 @@ const Bookform = () => {
     postBook();
   }, [newBook]);
 
-  useEffect(() => {
-    dispatch(fetchBooks());
-  }, []);
-
   return (
     <div className={styles.formContainer}>
-      <h5>ADD NEW BOOK</h5>
+      <p className={styles.hr} />
+      <h5 className={styles.formTitle}>ADD NEW BOOK</h5>
       <form className={styles.form}>
         <input
           className={styles.bookTitle}
           name="title"
           type="text"
-          placeholder="Book title"
+          placeholder="book title"
           value={formData.title}
           onChange={handleChange}
           required
@@ -62,7 +59,7 @@ const Bookform = () => {
           className={styles.bookAuthor}
           name="author"
           type="text"
-          placeholder="Author"
+          placeholder="author"
           value={formData.author}
           onChange={handleChange}
           required
@@ -81,7 +78,7 @@ const Bookform = () => {
           className={styles.bookButton}
           onClick={handleAddBook}
         >
-          Add Book
+          ADD BOOK
         </button>
       </form>
     </div>

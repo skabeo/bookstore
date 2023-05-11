@@ -25,31 +25,33 @@ const Bookrender = () => {
     <div className={styles.mainBook}>
       {Object.keys(books).map((key) => (
         <div key={key} className={styles.bookContainer}>
-          <div>
-            <p>{books[key][0].category}</p>
-            <h5>{books[key][0].title}</h5>
-            <p>{books[key][0].author}</p>
+          <div className={styles.bookList}>
+            <p className={styles.category}>{books[key][0].category}</p>
+            <h5 className={styles.title}>{books[key][0].title}</h5>
+            <p className={styles.author}>{books[key][0].author}</p>
             <button type="button">comments</button>
-            <button type="button" onClick={() => handleremoveBook(key)}>remove</button>
-            <button type="button">edit</button>
+            <span className={styles.vertical}>|</span>
+            <button className={styles.paddLeft} type="button" onClick={() => handleremoveBook(key)}>remove</button>
+            <span className={styles.vertical}>|</span>
+            <button className={styles.paddLeft} type="button">edit</button>
           </div>
           <div className={styles.middleSec}>
-            <AiOutlineLoading3Quarters />
+            <AiOutlineLoading3Quarters className={styles.progress} />
             <div className={styles.completed}>
-              <span>
+              <span className={styles.percent}>
                 64%
               </span>
-              <span>
+              <span className={styles.com}>
                 completed
               </span>
             </div>
           </div>
           <div>
-            <p>CURRENT CHAPTER</p>
-            <p>
+            <p className={styles.current}>CURRENT CHAPTER</p>
+            <p className={styles.chapter}>
               Chapter 9
             </p>
-            <button type="button">UPDATE PROGRESS</button>
+            <button className={styles.progress2} type="button">UPDATE PROGRESS</button>
           </div>
         </div>
       ))}

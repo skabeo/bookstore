@@ -1,7 +1,31 @@
+$blue: #0290ff;
+
 .nav {
   display: flex;
   align-items: center;
   gap: 50px;
+  margin-top: 50px;
+  padding: 20px 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav h1 {
+  color: $blue;
+}
+
+nav a {
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+nav a.active {
+  border: 1px solid red;
+}
+
+nav a:focus {
+  background-color: #77afd9;
+  color: white;
+  border-radius: 4px;
 }
 
 .navLink {
@@ -12,6 +36,41 @@
 .end {
   margin-left: auto;
   font-size: 20px;
+  color: $blue;
+  cursor: pointer;
+}
+
+.loading {
+  width: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 68vh;
+  background: radial-gradient(circle closest-side, #0290ff 90%, #0000) 0 0/33% 100% space;
+  clip-path: inset(0 100% 0 0);
+  animation: d1 1s steps(4) infinite;
+}
+
+@keyframes d1 { to { clip-path: inset(0 -34% 0 0); } }
+
+.category {
+  font-weight: 500;
+  font-size: 12px;
+  color: rgb(132, 122, 122);
+}
+
+.title {
+  font-size: 13px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.author {
+  font-size: 12px;
+  color: rgb(181, 176, 176);
+  padding-top: -2px;
+  padding-bottom: 7px;
 }
 
 .middleSec {
@@ -39,8 +98,84 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 
+.bookList button {
+  border: none;
+  background-color: white;
+  font-family: inherit;
+  font-size: 12px;
+  color: rgb(181, 176, 176);
+  padding-right: 8px;
+  cursor: pointer;
+}
+
+.bookList button:hover {
+  color: black;
+}
+
+.paddLeft {
+  padding-left: 8px;
+}
+
+.vertical {
+  color: rgb(181, 176, 176);
+}
+
+.progress {
+  font-size: 40px;
+  color: $blue;
+}
+
+.percent {
+  font-size: 20px;
+}
+
+.com {
+  color: rgb(181, 176, 176);
+  font-size: 14px;
+}
+
+.current {
+  font-size: 12px;
+  color: rgb(181, 176, 176);
+  padding-bottom: 4px;
+}
+
+.chapter {
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.progress2 {
+  background-color: $blue;
+  font-family: inherit;
+  font-size: 12px;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+.progress2:hover {
+  background-color: white;
+  color: $blue;
+}
+
+.hr {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
 .formContainer {
-  padding: 10px 40px;
+  padding: 0 40px;
+  padding-bottom: 60px;
+}
+
+.formTitle {
+  color: rgb(132, 122, 122);
+  padding-bottom: 15px;
+  padding-top: 20px;
 }
 
 .form {
@@ -50,9 +185,38 @@
 
 .bookTitle {
   width: 60%;
+  font-family: inherit;
+  padding: 10px 8px;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+}
+
+.bookButton {
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  background-color: $blue;
+  color: white;
+  cursor: pointer;
+  transition: all 0.35s;
 }
 
 .bookAuthor,
 .bookButton {
   width: 20%;
+  font-family: inherit;
+  padding: 10px 8px;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+}
+
+.bookTitle:focus,
+.bookAuthor:focus,
+.bookButton:focus {
+  border-color: $blue;
+}
+
+.bookButton:hover {
+  background-color: white;
+  color: $blue;
 }
