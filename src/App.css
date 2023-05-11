@@ -10,3 +10,10 @@
 body {
   font-family: 'Lato', sans-serif;
 }
+
+.library {
+  max-width: 80%;
+  min-height: 90vh;
+  margin: 0 auto;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
