@@ -28,7 +28,7 @@
 - [🤝 Contributing ](#contributing)
 - [⭐️ Show your support ](#️show-your-support)
 - [🙏 Acknowledgments ](#acknowledgements)
-- [❓ FAQ (OPTIONAL) ](#faq)
+- [❓ FAQ  ](#faq)
 - [📝 License ](#license)
 
 <br>
@@ -72,7 +72,7 @@
 
 ## 🚀 Live Demo <a id="live-demo"></a>
 
-- Live demo link would be up soon.
+- Live demo link is a available [here](https://skabeo-bookstore.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,7 +150,7 @@ Feel free to check the [issues page](https://github.com/skabeo/bookstore/issues)
 
 <!-- SUPPORT -->
 
-## ⭐️ Show your support <a id="support"></a>
+## ⭐️ Show your support <a id="show-your-support"></a>
 
 If you like this project consider giving a star to the project and if you want to go furthur make a donation to any one the top 8 charities in Hawaii islands at the link below:
 
