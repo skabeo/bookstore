@@ -28,7 +28,7 @@
 - [🤝 Contributing ](#contributing)
 - [⭐️ Show your support ](#️show-your-support)
 - [🙏 Acknowledgments ](#acknowledgements)
-- [❓ FAQ (OPTIONAL) ](#faq)
+- [❓ FAQ  ](#faq)
 - [📝 License ](#license)
 
 <br>
@@ -36,7 +36,7 @@
 
 # 📖 Bookstore <a id="about-project"></a>
 
-**bookstore** is an online store whre users can add a book to the web page.
+**Bookstore** is a simple webapp application that uses redux state management to manage the state of the application with react. Bookapp allows users to add a book to an API and in turn update the state of the book in redux and displays it in the UI. And also when a book is remove and action is dispatched to remove the specify book from the redux state and also sends a DELETE request to the API to remove the specific book.
 
 ## 🛠 Built With <a id="built-with"></a>
 
@@ -64,7 +64,8 @@
 
 ### Key Features <a id="key-features"></a>
 
-- **Setup for Bookstore wepbage**
+- **Add a book to the library**
+- **Remove a book from the library**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,7 +73,7 @@
 
 ## 🚀 Live Demo <a id="live-demo"></a>
 
-- Live demo link would be up soon.
+- Live demo link is a available [here](https://skabeo-bookstore.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,8 +133,8 @@ Then you can push the project into that repository and if you go to the reposito
 
 ## 🔭 Future Features <a id="future-features"></a>
 
-- A functional form where users can add book.
-- Much improved UI
+- A functional edit button where users can edit the book sent to the library.
+- Categories link to be filled with the appropriate UI.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,7 +151,7 @@ Feel free to check the [issues page](https://github.com/skabeo/bookstore/issues)
 
 <!-- SUPPORT -->
 
-## ⭐️ Show your support <a id="support"></a>
+## ⭐️ Show your support <a id="show-your-support"></a>
 
 If you like this project consider giving a star to the project and if you want to go furthur make a donation to any one the top 8 charities in Hawaii islands at the link below:
 
