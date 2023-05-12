@@ -18,11 +18,7 @@ nav a {
   padding: 2px 4px;
 }
 
-nav a.active {
-  border: 1px solid red;
-}
-
-nav a:focus {
+nav div a[class="active"] {
   background-color: #77afd9;
   color: white;
   border-radius: 4px;

@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Bookslogic from './Bookslogic';
 import styles from './styles/Bookapp.module.scss';
-import { fetchBooks } from '../redux/books/booksSlice';
 import Bookform from './Bookform';
 
 const Bookapp = () => {
   const books = useSelector((state) => state.book);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchBooks());
-  }, [dispatch]);
 
   const { isLoading } = books;
   const hasError = !books.isLoading && books.error;
